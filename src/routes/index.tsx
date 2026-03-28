@@ -1,19 +1,115 @@
+import { CircleArrowRight01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import { createFileRoute } from "@tanstack/react-router"
-import { Button } from "@/components/ui/button"
 
 export const Route = createFileRoute("/")({ component: App })
 
+const projects = [
+  {
+    name: "Shoogle",
+    href: "https://shoogle.dev",
+    description: "Shadcn search engine",
+  },
+  {
+    name: "Cardcn",
+    href: "https://cardcn.dev",
+    description: "Collection of shadcn cards",
+  },
+  {
+    name: "Formcn",
+    href: "https://formcn.dev",
+    description: "Build production-ready forms with shadcn, and React and Zod",
+  },
+  {
+    name: "Nextradar",
+    href: "https://nextradar.dev/",
+    description:
+      "Curated news, tools, courses, and jobs for the Next.js ecosystem.",
+  },
+  {
+    name: "Indie UI",
+    href: "https://ui.indie-starter.dev/",
+    description:
+      "A library of UI building blocks for shipping interfaces quickly.",
+  },
+] as const
+
+const links = [
+  { label: "Email", href: "mailto:ali.hussein.pre@gmail.com" },
+  { label: "GitHub", href: "https://github.com/Ali-Hussein-dev" },
+  { label: "X", href: "https://x.com/AliHussein_20" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/%F0%9F%92%BB-ali-h-4292a6156/",
+  },
+  {
+    label: "ShadCord",
+    href: "https://shoogle.dev/shadcord",
+  },
+] as const
+
 function App() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-      </div>
+    <div className="mx-auto flex min-h-svh max-w-2xl flex-col px-6 leading-relaxed text-foreground">
+      <header className="mb-14 pt-10 md:pt-14">
+        <h1
+          className="text-2xl font-bold tracking-tight md:text-3xl"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Ali Hussein
+        </h1>
+        <p className="mt-2 text-pretty">
+          Self-taught web developer, UI-driven engineer, and open source
+          contributor.
+        </p>
+      </header>
+
+      <section aria-labelledby="projects-heading" className="mb-14">
+        <h2
+          id="projects-heading"
+          className="mb-3 text-lg font-medium uppercase"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Open Source
+        </h2>
+        <ul className="flex flex-col gap-4">
+          {projects.map((p) => (
+            <li key={p.href} className="flex items-center gap-2 text-pretty">
+              <HugeiconsIcon
+                icon={CircleArrowRight01Icon}
+                className="size-4 text-muted-foreground/80"
+              />
+              <span>
+                <a
+                  href={p.href + "?utm_source=portfolio"}
+                  className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                >
+                  {p.name}
+                </a>
+                <span className="text-muted-foreground"> — </span>
+                {p.description}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <footer className="mt-auto border-t border-dashed border-border py-3">
+        <nav aria-label="Social and contact">
+          <ul className="flex flex-wrap gap-x-4 gap-y-2">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-muted-foreground underline decoration-transparent underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </footer>
     </div>
   )
 }
