@@ -58,7 +58,7 @@ function App() {
         >
           Ali Hussein
         </h1>
-        <p className="mt-2 text-pretty">
+        <p className="mt-2 text-pretty text-muted-foreground">
           Self-taught web developer, UX-driven engineer, and open source
           contributor.
         </p>
@@ -79,16 +79,18 @@ function App() {
                 icon={CircleArrowRight01Icon}
                 className="size-4 text-muted-foreground/80"
               />
-              <span>
+              <div>
                 <a
                   href={p.href + "?utm_source=portfolio"}
                   className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                 >
                   {p.name}
                 </a>
-                <span className="text-muted-foreground"> — </span>
-                {p.description}
-              </span>
+                <span className="text-muted-foreground"> - </span>
+                <p className="inline-block text-muted-foreground">
+                  {p.description}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
