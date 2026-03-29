@@ -59,7 +59,7 @@ function App() {
           Ali Hussein
         </h1>
         <p className="mt-2 text-pretty">
-          Self-taught web developer, UI-driven engineer, and open source
+          Self-taught web developer, UX-driven engineer, and open source
           contributor.
         </p>
       </header>
